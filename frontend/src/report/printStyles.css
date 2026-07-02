@@ -1,0 +1,35 @@
+/* Print styling for the Step Report overlay.
+   On screen the report is a normal full-screen overlay; when printing we hide the rest
+   of the app chrome and let only the report flow onto the page. */
+@media print {
+  /* Hide everything, then reveal just the report subtree. */
+  body * {
+    visibility: hidden;
+  }
+  .report-root,
+  .report-root * {
+    visibility: visible;
+  }
+  .report-root {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+    background: #ffffff;
+  }
+
+  /* Interactive chrome never prints. */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Encourage each major section to avoid awkward page breaks. */
+  .report-section {
+    break-inside: avoid;
+  }
+
+  @page {
+    margin: 12mm;
+  }
+}

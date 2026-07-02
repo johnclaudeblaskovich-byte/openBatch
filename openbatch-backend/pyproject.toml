@@ -1,0 +1,17 @@
+[project]
+name = "openbatch-backend"
+version = "1.0.0"
+description = "OpenBatch FastAPI backend — simulation, mass-balance, scheduling and scale-up solvers."
+requires-python = ">=3.11"
+
+[tool.black]
+line-length = 88
+target-version = ["py311"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py311"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
